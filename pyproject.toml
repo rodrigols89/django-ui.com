@@ -1,0 +1,47 @@
+[project]
+name = "django-ui-com"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "rodrigols89",email = "rodrigols89.inbox@gmail.com"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.12,<4.0"
+
+dependencies = [
+    "django (>=5.2.4,<6.0.0)",
+    "ruff (>=0.12.7,<0.13.0)",
+    "taskipy (>=1.14.1,<2.0.0)"
+]
+
+[tool.ruff]
+line-length = 79
+exclude = [
+    "core/settings.py",
+    "agent/migrations",
+]
+
+[tool.ruff.lint]
+preview = true
+select = ["I", "F", "E", "W", "PL", "PT"]
+
+[tool.ruff.format]
+preview = true
+quote-style = "double"
+
+[tool.taskipy.tasks]
+lint = 'ruff check'
+pre_format = 'ruff check --fix'
+format = 'ruff format'
+pre_test = 'task lint'
+start = 'python manage.py runserver'
+migrate = 'python manage.py migrate'
+makemigrations = 'python manage.py makemigrations'
+
+[tool.poetry]
+packages = [{include = "django_ui"}]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
