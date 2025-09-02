@@ -19,7 +19,6 @@ dependencies = [
 line-length = 79
 exclude = [
     "core/settings.py",
-    "agent/migrations",
 ]
 
 [tool.ruff.lint]
