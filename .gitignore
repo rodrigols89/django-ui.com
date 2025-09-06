@@ -1,8 +1,6 @@
-# Ignore media/documents
-media/documents/*
-
-# Ignore FAISS
-faiss_database
+# Node
+node_modules
+node_modules/*
 
 # Environment
 environment
