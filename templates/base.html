@@ -1,21 +1,15 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %}Django UI - Examples{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'css/output.css' %}">
-  </head>
-<body>
-    <header>
-        <h1>Meu Projeto Django</h1>
-    </header>
-    <main>
-        {% block content %}
-        {% endblock %}
-    </main>
-    <footer>
-        <p>&copy; 2025 Meu Projeto</p>
-    </footer>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'css/output.css' %}">
+        <title>{% block title %}rodrigols89 - UI Samples{% endblock %}</title>
+    </head>
+    <body>
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+    </body>
 </html>
