@@ -1,0 +1,212 @@
+{% extends "base.html" %}
+
+{% block title %}Sizing{% endblock %}
+
+{% block content %}
+    {% include "components/navbar.html" %}
+
+        <div class="flex m-8 space-x-4 mb-6">
+        <a href="#width" class="px-4 py-2 rounded text-white bg-blue-500 hover:bg-blue-600">
+            Width
+        </a>
+        <a href="#height" class="px-4 py-2 rounded text-white bg-green-500 hover:bg-green-600">
+            Height
+        </a>
+    </div>
+
+    <!-- WIDTH -->
+    <section id="width" class="pb-0 p-8 pt-0">
+
+        <h1 class="text-2xl font-bold mt-6">Width</h1>
+        <p class="mt-2 text-gray-700">
+            A propriedade <strong>width</strong> controla a largura de um elemento.
+            No TailwindCSS, usamos classes como <code>w-*</code> para definir larguras fixas ou relativas.
+        </p>
+
+        <!-- Exemplo: largura fixa -->
+        <div class="mt-6">
+            <h2 class="text-xl font-semibold mb-2">Largura fixa</h2>
+            <div class="bg-blue-500 text-white w-24 p-2 mb-2">
+                <code>w-24</code>
+            </div>
+            <div class="bg-green-500 text-white w-48 p-2 mb-2">
+                <code>w-48</code>
+            </div>
+            <div class="bg-purple-500 text-white w-72 p-2 mb-2">
+                <code>w-72</code>
+            </div>
+        </div>
+
+        <pre class="bg-gray-900 text-green-300 p-4 rounded mb-6">
+&lt;div class="w-24 bg-blue-500"&gt;w-24&lt;/div&gt;
+&lt;div class="w-48 bg-green-500"&gt;w-48&lt;/div&gt;
+&lt;div class="w-72 bg-purple-500"&gt;w-72&lt;/div&gt;
+        </pre>
+
+        <!-- Exemplo: largura total e parcial -->
+        <h2 class="text-2xl font-semibold mt-8 mb-4">1. Largura total e parcial</h2>
+        <div class="border p-4 bg-gray-100">
+            <div class="bg-red-400 w-full text-white p-2 mb-2">w-full (100%)</div>
+            <div class="bg-yellow-400 w-1/2 text-white p-2 mb-2">w-1/2 (50%)</div>
+            <div class="bg-green-400 w-1/3 text-white p-2 mb-2">w-1/3 (33%)</div>
+            <div class="bg-blue-400 w-2/3 text-white p-2 mb-2">w-2/3 (66%)</div>
+        </div>
+        <br/>
+
+        <pre class="bg-gray-900 text-green-300 p-4 rounded mb-6">
+&lt;div class="w-full bg-red-400"&gt;w-full&lt;/div&gt;
+&lt;div class="w-1/2 bg-yellow-400"&gt;w-1/2&lt;/div&gt;
+&lt;div class="w-1/3 bg-green-400"&gt;w-1/3&lt;/div&gt;
+&lt;div class="w-2/3 bg-blue-400"&gt;w-2/3&lt;/div&gt;
+        </pre>
+
+        <!-- Exemplo: largura mínima e máxima -->
+        <h2 class="text-2xl font-semibold mt-8 mb-4">2. Largura mínima e máxima</h2>
+        <p class="mb-2">
+            Tailwind também fornece classes para <code>min-width</code> e <code>max-width</code>.
+        </p>
+        <div class="border p-4 bg-gray-100">
+            <div class="bg-pink-300 min-w-[150px] p-2 mb-2">
+                min-w-[150px]
+            </div>
+            <div class="bg-indigo-300 max-w-xs p-2 mb-2">
+                max-w-xs (20rem)
+            </div>
+            <div class="bg-indigo-500 max-w-md p-2 text-white">
+                max-w-md (28rem)
+            </div>
+        </div>
+
+        <pre class="bg-gray-900 text-green-300 p-4 rounded mb-6">
+&lt;div class="min-w-[150px] bg-pink-300"&gt;min-w-[150px]&lt;/div&gt;
+&lt;div class="max-w-xs bg-indigo-300"&gt;max-w-xs&lt;/div&gt;
+&lt;div class="max-w-md bg-indigo-500"&gt;max-w-md&lt;/div&gt;
+        </pre>
+
+        <!-- Exemplo: largura automática -->
+        <h2 class="text-2xl font-semibold mt-8 mb-4">3. Largura automática</h2>
+        <p class="mb-2">
+            Com a classe <code>w-auto</code>, o elemento terá a largura baseada no conteúdo.
+        </p>
+        <div class="border p-4 bg-gray-100">
+            <div class="bg-teal-400 w-auto p-2 text-white inline-block">
+                w-auto (se ajusta ao conteúdo)
+            </div>
+        </div>
+        <br/>
+
+        <pre class="bg-gray-900 text-green-300 p-4 rounded mb-6">
+&lt;div class="w-auto bg-teal-400"&gt;w-auto&lt;/div&gt;
+        </pre>
+
+        <!-- Exemplo: largura da tela -->
+        <h2 class="text-2xl font-semibold mt-8 mb-4">4. Largura da tela</h2>
+        <p class="mb-2">
+            Podemos usar <code>w-screen</code> para ocupar toda a largura da tela.
+        </p>
+        <div class="bg-gray-700 text-white w-screen p-2">
+            w-screen (100vw)
+        </div>
+
+        <pre class="bg-gray-900 text-green-300 p-4 rounded mb-6">
+    &lt;div class="w-screen bg-gray-700"&gt;w-screen&lt;/div&gt;
+        </pre>
+    </section>
+
+    <!-- HEIGHT -->
+    <section id="height" class="p-8">
+        <h1 class="text-2xl font-bold mt-6">Height</h1>
+        <p class="mt-2 text-gray-700">
+            A propriedade <strong>height</strong> controla a altura de um elemento.
+            No TailwindCSS, usamos classes como <code>h-*</code> para definir alturas fixas ou relativas.
+        </p>
+
+        <!-- Exemplo: altura fixa -->
+        <div class="mt-6">
+            <h2 class="text-xl font-semibold mb-2">Altura fixa</h2>
+            <div class="bg-blue-500 text-white h-12 w-32 flex items-center justify-center mb-2">
+                h-12
+            </div>
+            <div class="bg-green-500 text-white h-24 w-32 flex items-center justify-center mb-2">
+                h-24
+            </div>
+            <div class="bg-purple-500 text-white h-40 w-32 flex items-center justify-center">
+                h-40
+            </div>
+        </div>
+        <br/>
+
+        <pre class="bg-gray-900 text-green-300 p-4 rounded mb-6">
+&lt;div class="h-12 bg-blue-500"&gt;h-12&lt;/div&gt;
+&lt;div class="h-24 bg-green-500"&gt;h-24&lt;/div&gt;
+&lt;div class="h-40 bg-purple-500"&gt;h-40&lt;/div&gt;
+        </pre>
+
+        <!-- Exemplo: altura total e parcial -->
+        <h2 class="text-2xl font-semibold mt-8 mb-4">1. Altura total e parcial</h2>
+        <div class="border p-4 bg-gray-100 h-64 flex gap-2">
+            <div class="bg-red-400 h-full w-1/4 text-white flex items-center justify-center">h-full</div>
+            <div class="bg-yellow-400 h-1/2 w-1/4 text-white flex items-center justify-center">h-1/2</div>
+            <div class="bg-green-400 h-1/3 w-1/4 text-white flex items-center justify-center">h-1/3</div>
+            <div class="bg-blue-400 h-2/3 w-1/4 text-white flex items-center justify-center">h-2/3</div>
+        </div>
+        <br/>
+
+        <pre class="bg-gray-900 text-green-300 p-4 rounded mb-6">
+&lt;div class="h-full bg-red-400"&gt;h-full&lt;/div&gt;
+&lt;div class="h-1/2 bg-yellow-400"&gt;h-1/2&lt;/div&gt;
+&lt;div class="h-1/3 bg-green-400"&gt;h-1/3&lt;/div&gt;
+&lt;div class="h-2/3 bg-blue-400"&gt;h-2/3&lt;/div&gt;
+        </pre>
+
+        <!-- Exemplo: altura mínima e máxima -->
+        <h2 class="text-2xl font-semibold mt-8 mb-4">2. Altura mínima e máxima</h2>
+        <p class="mb-2">
+            Tailwind também fornece classes para <code>min-height</code> e <code>max-height</code>.
+        </p>
+        <div class="border p-4 bg-gray-100">
+            <div class="bg-pink-300 min-h-[100px] w-40 flex items-center justify-center mb-2">
+                min-h-[100px]
+            </div>
+            <div class="bg-indigo-300 max-h-24 overflow-y-auto w-40 p-2">
+                max-h-24<br>Texto extra<br>Texto extra<br>Texto extra<br>Texto extra
+            </div>
+        </div>
+        <br/>
+
+        <pre class="bg-gray-900 text-green-300 p-4 rounded mb-6">
+&lt;div class="min-h-[100px] bg-pink-300"&gt;min-h-[100px]&lt;/div&gt;
+&lt;div class="max-h-24 bg-indigo-300"&gt;max-h-24&lt;/div&gt;
+        </pre>
+
+        <!-- Exemplo: altura automática -->
+        <h2 class="text-2xl font-semibold mt-8 mb-4">3. Altura automática</h2>
+        <p class="mb-2">
+            Com a classe <code>h-auto</code>, o elemento terá altura baseada no conteúdo.
+        </p>
+        <div class="border p-4 bg-gray-100">
+            <div class="bg-teal-400 h-auto w-40 p-2 text-white">
+                h-auto<br>Altura conforme o conteúdo
+            </div>
+        </div>
+        <br/>
+
+        <pre class="bg-gray-900 text-green-300 p-4 rounded mb-6">
+&lt;div class="h-auto bg-teal-400"&gt;h-auto&lt;/div&gt;
+        </pre>
+
+        <!-- Exemplo: altura da tela -->
+        <h2 class="text-2xl font-semibold mt-8 mb-4">4. Altura da tela</h2>
+        <p class="mb-2">
+            Podemos usar <code>h-screen</code> para ocupar toda a altura da tela.
+        </p>
+        <div class="bg-gray-700 text-white h-40 h-screen flex items-center justify-center">
+            h-screen (100vh)
+        </div>
+        <br/>
+
+        <pre class="bg-gray-900 text-green-300 p-4 rounded mb-6">
+&lt;div class="h-screen bg-gray-700"&gt;h-screen&lt;/div&gt;
+        </pre>
+    </section>
+{% endblock %}
