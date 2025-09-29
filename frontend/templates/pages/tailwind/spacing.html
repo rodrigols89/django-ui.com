@@ -1,0 +1,222 @@
+{% extends "base.html" %}
+
+{% block title %}Spacing{% endblock %}
+
+{% block content %}
+    {% include "components/navbar.html" %}
+
+    <div class="flex m-8 space-x-4 mb-6">
+        <a href="#padding" class="px-4 py-2 rounded text-white bg-blue-500 hover:bg-blue-600">
+            Padding
+        </a>
+        <a href="#margin" class="px-4 py-2 rounded text-white bg-green-500 hover:bg-green-600">
+            Margin
+        </a>
+    </div>
+
+    <!-- PADDGING -->
+    <section id="padding" class="pt-0 p-8 pb-1">
+        <h1 class="text-2xl font-bold mt-6">Padding</h1>
+        <p class="mt-2 text-gray-700">
+            O <strong>padding</strong> é o espaçamento interno de um elemento, ou seja, a distância entre o conteúdo e sua borda.
+        </p>
+
+        <!-- Exemplo: sem padding -->
+        <div class="mt-6">
+            <h2 class="text-xl font-semibold mb-2">Sem padding</h2>
+            <div class="bg-blue-500 text-white">
+                Texto dentro da caixa (sem padding)
+            </div>
+        </div>
+
+        <!-- Exemplo: com padding -->
+        <div class="mt-6">
+            <h2 class="text-xl font-semibold mb-2">Com padding</h2>
+            <div class="bg-green-500 text-white p-6">
+                Texto dentro da caixa (com <code>p-6</code>)
+            </div>
+        </div>
+        <br/>
+
+        <p class="mb-4">
+            No TailwindCSS, o <strong>padding</strong> é controlado pelas classes <code>p-*</code>,
+            <code>px-*</code>, <code>py-*</code>, <code>pt-*</code>, <code>pr-*</code>, <code>pb-*</code> e <code>pl-*</code>.
+            Cada classe aplica espaçamento interno (<em>padding</em>) em direções diferentes.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-8 mb-4">
+            1. Padding em todos os lados (<code>p-*</code>)
+        </h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            <div class="border p-6 bg-gray-100">
+                <p class="bg-blue-200 p-0">Este elemento tem <code>p-0</code></p>
+            </div>
+            <div class="border p-6 bg-gray-100">
+                <p class="bg-blue-200 p-1">Este elemento tem <code>p-1</code></p>
+            </div>
+            <div class="border p-6 bg-gray-100">
+                <p class="bg-blue-200 p-2">Este elemento tem <code>p-2</code></p>
+            </div>
+            <div class="border p-6 bg-gray-100">
+                <p class="bg-blue-200 p-3">Este elemento tem <code>p-3</code></p>
+            </div>
+            <div class="border p-6 bg-gray-100">
+                <p class="bg-blue-200 p-4">Este elemento tem <code>p-4</code></p>
+            </div>
+        </div>
+        <br/>
+
+        <pre class="bg-gray-900 text-green-300 p-4 rounded mb-6">
+&lt;div class="p-4 bg-blue-200"&gt;
+    Padding aplicado em todos os lados
+&lt;/div&gt;
+        </pre>
+
+        <h2 class="text-2xl font-semibold mt-8 mb-4">2. Padding no eixo X (<code>px-*</code>)</h2>
+        <div class="border p-6 bg-gray-100 mb-4">
+            <p class="bg-green-200 px-8">Este elemento tem <code>px-8</code></p>
+        </div>
+
+        <pre class="bg-gray-900 text-green-300 p-4 rounded mb-6">
+&lt;div class="px-8 bg-green-200"&gt;
+    Padding aplicado apenas na esquerda e direita
+&lt;/div&gt;
+        </pre>
+
+        <h2 class="text-2xl font-semibold mt-8 mb-4">3. Padding no eixo Y (<code>py-*</code>)</h2>
+        <div class="border p-6 bg-gray-100 mb-4">
+            <p class="bg-purple-200 py-6">Este elemento tem <code>py-6</code></p>
+        </div>
+
+        <pre class="bg-gray-900 text-green-300 p-4 rounded mb-6">
+&lt;div class="py-6 bg-purple-200"&gt;
+    Padding aplicado apenas no topo e embaixo
+&lt;/div&gt;
+        </pre>
+
+        <h2 class="text-2xl font-semibold mt-8 mb-4">4. Padding individual (top, right, bottom, left)</h2>
+        <div class="border p-6 bg-gray-100 mb-4">
+            <p class="bg-yellow-200 pt-8 pr-4 pb-2 pl-10">
+                <code>pt-8 pr-4 pb-2 pl-10</code>
+            </p>
+        </div>
+
+        <pre class="bg-gray-900 text-green-300 p-4 rounded mb-6">
+&lt;div class="pt-8 pr-4 pb-2 pl-10 bg-yellow-200"&gt;
+    Padding diferente em cada lado
+&lt;/div&gt;
+        </pre>
+
+        <h2 class="text-2xl font-semibold mt-8 mb-4">5. Escala de valores</h2>
+        <p class="mb-4">
+            O TailwindCSS usa uma escala numérica para padding, geralmente múltiplos de <strong>0.25rem</strong>
+            (4px). Por exemplo:
+        </p>
+        <ul class="list-disc ml-8 mb-6">
+            <li><code>p-0</code> → 0px</li>
+            <li><code>p-1</code> → 0.25rem (4px)</li>
+            <li><code>p-2</code> → 0.5rem (8px)</li>
+            <li><code>p-4</code> → 1rem (16px)</li>
+            <li><code>p-8</code> → 2rem (32px)</li>
+        </ul>
+
+        <div class="grid grid-cols-5 gap-4 mb-8">
+            <div class="bg-red-200 p-1">p-1</div>
+            <div class="bg-red-300 p-2">p-2</div>
+            <div class="bg-red-400 p-4">p-4</div>
+            <div class="bg-red-500 p-8 text-white">p-8</div>
+            <div class="bg-red-600 p-12 text-white">p-12</div>
+        </div>
+    </section>
+
+    <!-- MARGIN -->
+    <section id="margin" class="p-8 pt-0 bg-gray-50">
+        <h1 class="text-2xl font-bold mt-6">Margin</h1>
+        <p class="mt-2 text-gray-700">
+            A <strong>margin</strong> é o espaçamento externo de um elemento, ou seja, a distância entre a borda do elemento e os elementos vizinhos.
+        </p>
+
+        <!-- Exemplo: sem margin -->
+        <div class="mt-6">
+            <h2 class="text-xl font-semibold mb-2">Sem margin</h2>
+            <div class="bg-blue-500 text-white">
+                Caixa sem margem
+            </div>
+            <div class="bg-green-500 text-white">
+                Outra caixa sem margem
+            </div>
+        </div>
+
+        <!-- Exemplo: com margin -->
+        <div class="mt-6">
+            <h2 class="text-xl font-semibold mb-2">Com margin</h2>
+            <div class="bg-blue-500 text-white m-4">
+                Caixa com <code>m-4</code>
+            </div>
+            <div class="bg-green-500 text-white m-8">
+                Caixa com <code>m-8</code>
+            </div>
+        </div>
+
+        <p class="mb-4 mt-6">
+            No TailwindCSS, a <strong>margin</strong> é controlada pelas classes <code>m-*</code>,
+            <code>mx-*</code>, <code>my-*</code>, <code>mt-*</code>, <code>mr-*</code>, <code>mb-*</code> e <code>ml-*</code>.
+            Cada classe aplica espaçamento externo (<em>margin</em>) em direções diferentes.
+        </p>
+
+        <h2 class="text-2xl font-semibold mt-8 mb-4">
+            1. Margin em todos os lados (<code>m-*</code>)
+        </h2>
+        <div class="border grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div class="bg-yellow-200 m-0 p-4">m-0</div>
+            <div class="bg-yellow-300 m-2 p-4">m-2</div>
+            <div class="bg-yellow-400 m-4 p-4">m-4</div>
+            <div class="bg-yellow-500 m-8 p-4">m-8</div>
+        </div>
+        <div class="pt-4">
+            <strong>NOTE:</strong> Vejam que existem uma distância (margem) entre os elementos.
+        </div>
+
+        <h2 class="text-2xl font-semibold mt-8 mb-4">
+            2. Margin no eixo X (<code>mx-*</code>)
+        </h2>
+        <div class="border flex space-x-4">
+            <div class="bg-purple-300 mx-4 p-4">mx-4</div>
+            <div class="bg-purple-400 mx-8 p-4">mx-8</div>
+        </div>
+
+        <h2 class="text-2xl font-semibold mt-8 mb-4">
+            3. Margin no eixo Y (<code>my-*</code>)
+        </h2>
+        <div class="border flex space-x-4">
+            <div class="bg-pink-300 my-2 p-4">my-2</div>
+            <div class="bg-pink-400 my-6 p-4">my-6</div>
+        </div>
+
+        <h2 class="text-2xl font-semibold mt-8 mb-4">4. Margin individual (top, right, bottom, left)</h2>
+        <div class="bg-indigo-300 mt-4 mr-8 mb-2 ml-6 p-4">
+            <code>mt-4 mr-8 mb-2 ml-6</code>
+        </div>
+
+        <h2 class="text-2xl font-semibold mt-8 mb-4">5. Escala de valores</h2>
+        <p class="mb-4">
+            O TailwindCSS usa a mesma escala numérica para margin, geralmente múltiplos de <strong>0.25rem</strong> (4px). Por exemplo:
+        </p>
+        <ul class="list-disc ml-8 mb-6">
+            <li><code>m-0</code> → 0px</li>
+            <li><code>m-1</code> → 0.25rem (4px)</li>
+            <li><code>m-2</code> → 0.5rem (8px)</li>
+            <li><code>m-4</code> → 1rem (16px)</li>
+            <li><code>m-8</code> → 2rem (32px)</li>
+        </ul>
+
+        <div class="grid grid-cols-5 gap-4 mb-8">
+            <div class="bg-red-200 m-1 p-4">m-1</div>
+            <div class="bg-red-300 m-2 p-4">m-2</div>
+            <div class="bg-red-400 m-4 p-4">m-4</div>
+            <div class="bg-red-500 m-8 text-white p-4">m-8</div>
+            <div class="bg-red-600 m-12 text-white p-4">m-12</div>
+        </div>
+    </section>
+{% endblock %}
