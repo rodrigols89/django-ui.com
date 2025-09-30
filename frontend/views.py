@@ -12,3 +12,7 @@ def spacing(request):
 def sizing(request):
     if request.method == 'GET':
         return render(request, 'pages/tailwind/sizing.html')
+
+def layout(request):
+    if request.method == 'GET':
+        return render(request, 'pages/tailwind/layout.html')

@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+
+{% block title %}Layout{% endblock %}
+
+{% block content %}
+    {% include "components/navbar.html" %}
+
+    <div class="flex m-8 space-x-4 mb-6">
+        <a href="#columns" class="px-4 py-2 rounded text-white bg-blue-500 hover:bg-blue-600">
+            Columns
+        </a>
+        <a href="#position-trbl" class="px-4 py-2 rounded text-white bg-green-500 hover:bg-green-600">
+            POSITION (TOP / RIGHT / BOTTOM / LEFT)
+        </a>
+    </div>
+
+
+    <!-- COLUMNS -->
+    <section id="columns" class="pt-0 p-8">
+        <h1 class="text-2xl font-bold mt-6">Columns</h1>
+        <p class="mt-2 text-gray-700">
+            A utilidade <strong>columns</strong> no TailwindCSS permite dividir o conteúdo em múltiplas colunas de forma
+            responsiva, semelhante à propriedade <code>column-count</code> do CSS.
+            Muito útil para textos longos, listas ou galerias de conteúdo.
+        </p>
+
+        <!-- Exemplo: duas colunas -->
+        <h2 class="text-xl font-semibold mt-6 mb-2">1. Duas colunas (<code>columns-2</code>)</h2>
+        <div class="columns-2 gap-4">
+            <p class="bg-blue-200 p-2">Item 1</p>
+            <p class="bg-blue-300 p-2">Item 2</p>
+            <p class="bg-blue-400 p-2">Item 3</p>
+            <p class="bg-blue-500 p-2 text-white">Item 4</p>
+        </div>
+
+        <pre class="bg-gray-900 text-green-300 p-4 rounded mb-6">
+&lt;div class="columns-2 gap-4"&gt;
+    &lt;p&gt;Item 1&lt;/p&gt;
+    &lt;p&gt;Item 2&lt;/p&gt;
+    &lt;p&gt;Item 3&lt;/p&gt;
+    &lt;p&gt;Item 4&lt;/p&gt;
+&lt;/div&gt;
+        </pre>
+
+        <!-- Exemplo: três colunas -->
+        <h2 class="text-xl font-semibold mt-6 mb-2">2. Três colunas (<code>columns-3</code>)</h2>
+        <div class="columns-3 gap-4">
+            <p class="bg-green-200 p-2">A</p>
+            <p class="bg-green-300 p-2">B</p>
+            <p class="bg-green-400 p-2">C</p>
+            <p class="bg-green-500 p-2 text-white">D</p>
+            <p class="bg-green-600 p-2 text-white">E</p>
+            <p class="bg-green-700 p-2 text-white">F</p>
+        </div>
+
+        <pre class="bg-gray-900 text-green-300 p-4 rounded mb-6">
+&lt;div class="columns-3 gap-4"&gt;
+    &lt;p&gt;A&lt;/p&gt;
+    &lt;p&gt;B&lt;/p&gt;
+    &lt;p&gt;C&lt;/p&gt;
+    &lt;p&gt;D&lt;/p&gt;
+    &lt;p&gt;E&lt;/p&gt;
+    &lt;p&gt;F&lt;/p&gt;
+&lt;/div&gt;
+        </pre>
+
+        <!-- Exemplo: texto fluindo em colunas -->
+        <h2 class="text-xl font-semibold mt-6 mb-2">3. Texto em múltiplas colunas</h2>
+        <div class="border columns-2 gap-8 text-justify bg-gray-100 p-4 rounded">
+            <p>
+                O TailwindCSS simplifica a criação de layouts multi-colunas.
+                Isso é especialmente útil quando você quer dividir parágrafos de texto ou artigos em colunas responsivas,
+                proporcionando uma melhor leitura em telas largas.
+            </p>
+            <p>
+                Você pode controlar o número de colunas com classes como
+                <code>columns-2</code>, <code>columns-3</code>, <code>columns-4</code>,
+                ou definir larguras como <code>columns-sm</code>, <code>columns-md</code>, etc.
+            </p>
+        </div>
+    </section>
+
+    <!-- POSITION (TOP / RIGHT / BOTTOM / LEFT) -->
+    <section id="position-trbl" class="pt-0 p-8 bg-gray-50">
+        <h1 class="text-2xl font-bold mt-6">Top / Right / Bottom / Left</h1>
+        <p class="mt-2 text-gray-700">
+            As utilidades <strong>top</strong>, <strong>right</strong>, <strong>bottom</strong> e <strong>left</strong> definem deslocamentos posicionais de um elemento quando este está em posição relativa, absoluta ou fixa.
+            No TailwindCSS, usamos classes como <code>top-0</code>, <code>right-4</code>, <code>bottom-2</code>, <code>left-8</code>, entre outras.
+        </p>
+
+        <!-- Exemplo: posicionamento relativo -->
+        <h2 class="text-xl font-semibold mt-6 mb-2">1. Relativo + deslocamentos</h2>
+        <div class="relative border h-32 bg-gray-100 mb-4">
+            <div class="absolute top-0 left-0 bg-blue-400 text-white px-2 py-1">top-0 left-0</div>
+            <div class="absolute top-0 right-0 bg-green-400 text-white px-2 py-1">top-0 right-0</div>
+            <div class="absolute bottom-0 left-0 bg-purple-400 text-white px-2 py-1">bottom-0 left-0</div>
+            <div class="absolute bottom-0 right-0 bg-red-400 text-white px-2 py-1">bottom-0 right-0</div>
+        </div>
+
+        <pre class="bg-gray-900 text-green-300 p-4 rounded mb-6">
+&lt;div class="relative h-32 border"&gt;
+    &lt;div class="absolute top-0 left-0"&gt;top-0 left-0&lt;/div&gt;
+    &lt;div class="absolute top-0 right-0"&gt;top-0 right-0&lt;/div&gt;
+    &lt;div class="absolute bottom-0 left-0"&gt;bottom-0 left-0&lt;/div&gt;
+    &lt;div class="absolute bottom-0 right-0"&gt;bottom-0 right-0&lt;/div&gt;
+&lt;/div&gt;
+        </pre>
+
+        <!-- Exemplo: deslocamentos com unidades maiores -->
+        <h2 class="text-xl font-semibold mt-8 mb-2">2. Deslocamentos (unidades)</h2>
+        <div class="relative border h-40 bg-gray-100 mb-4">
+            <div class="absolute top-4 left-4 bg-blue-300 text-white px-2 py-1">top-4 left-4</div>
+            <div class="absolute top-4 right-8 bg-green-300 text-white px-2 py-1">top-4 right-8</div>
+            <div class="absolute bottom-6 left-4 bg-purple-300 text-white px-2 py-1">bottom-6 left-4</div>
+        </div>
+
+        <pre class="bg-gray-900 text-green-300 p-4 rounded mb-6">
+&lt;div class="relative h-40 border"&gt;
+    &lt;div class="absolute top-4 left-4"&gt;top-4 left-4&lt;/div&gt;
+    &lt;div class="absolute top-4 right-8"&gt;top-4 right-8&lt;/div&gt;
+    &lt;div class="absolute bottom-6 left-4"&gt;bottom-6 left-4&lt;/div&gt;
+&lt;/div&gt;
+        </pre>
+
+        <!-- Exemplo: centralização vertical e horizontal -->
+        <h2 class="text-xl font-semibold mt-8 mb-2">3. Centralizar com offsets</h2>
+        <p class="mb-2">
+            Uma técnica comum é usar <code>top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2</code> para centralizar um elemento.
+        </p>
+        <div class="relative border h-48 bg-gray-100 mb-4">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-500 text-white px-3 py-1">
+                centralizado
+            </div>
+        </div>
+
+        <pre class="bg-gray-900 text-green-300 p-4 rounded mb-6">
+&lt;div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"&gt;
+    centralizado
+&lt;/div&gt;
+        </pre>
+
+        <!-- Exemplo: deslocamentos negativos -->
+        <h2 class="text-xl font-semibold mt-8 mb-2">4. Deslocamentos negativos</h2>
+        <div class="relative border h-40 bg-gray-100 mb-4">
+            <div class="absolute top-0 left-0 bg-blue-400 text-white px-2 py-1">top-0 left-0</div>
+            <div class="absolute top-0 left-[-16px] bg-green-400 text-white px-2 py-1">left-[-4]</div>
+            <div class="absolute left-0 top-[-16px] bg-purple-400 text-white px-2 py-1">top-[-4]</div>
+        </div>
+
+        <pre class="bg-gray-900 text-green-300 p-4 rounded mb-6">
+&lt;div class="absolute left-[-4] top-0"&gt;left-[-4]&lt;/div&gt;
+&lt;div class="absolute top-[-4] left-0"&gt;top-[-4]&lt;/div&gt;
+        </pre>
+    </section>
+{% endblock %}
