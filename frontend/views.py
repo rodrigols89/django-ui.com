@@ -20,3 +20,7 @@ def layout(request):
 def typography(request):
     if request.method == 'GET':
         return render(request, 'pages/tailwind/typography.html')
+
+def borders(request):
+    if request.method == 'GET':
+        return render(request, 'pages/tailwind/borders.html')

@@ -1,0 +1,455 @@
+{% extends "base.html" %}
+
+{% block title %}Borders{% endblock %}
+
+{% block content %}
+    {% include "components/navbar.html" %}
+
+    <div class="flex m-8 space-x-4 mb-6">
+        <a href="#border-radius" class="px-4 py-2 rounded text-white bg-blue-500 hover:bg-blue-600">
+            Border Radius
+        </a>
+        <a href="#border-width" class="px-4 py-2 rounded text-white bg-green-500 hover:bg-green-600">
+            Border Width
+        </a>
+        <a href="#border-style" class="px-4 py-2 rounded text-white bg-purple-500 hover:bg-purple-600">
+            Border Style
+        </a>
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- BORDER RADIUS -->
+    <section id="border-radius" class="p-8">
+        <h1 class="text-2xl font-bold mt-6">Border Radius</h1>
+        <p class="mt-2 text-gray-700">
+            As utilidades de <code>border-radius</code> do Tailwind controlam o arredondamento dos cantos.
+            Classes comuns: <code>rounded-none</code>, <code>rounded-sm</code>, <code>rounded</code>/<code>rounded-md</code>, <code>rounded-lg</code>,
+            <code>rounded-xl</code>, <code>rounded-2xl</code>, <code>rounded-3xl</code>, <code>rounded-4xl</code>, <code>rounded-full</code>
+            e variantes por canto e por direção lógica.
+        </p>
+
+        <!-- Tamanhos padrão -->
+        <div class="mt-6 p-4 border bg-white">
+            <h2 class="font-semibold mb-2">Tamanhos padrão</h2>
+            <div class="grid grid-cols-2 md:grid-cols-6 gap-4">
+                <div class="p-4 bg-blue-200 border rounded-xs">rounded-xs</div>
+                <div class="p-4 bg-blue-300 border rounded-sm">rounded-sm</div>
+                <div class="p-4 bg-blue-400 border rounded-md">rounded-md</div>
+                <div class="p-4 bg-blue-500 border rounded-lg text-white">rounded-lg</div>
+                <div class="p-4 bg-blue-600 border rounded-xl text-white">rounded-xl</div>
+                <div class="p-4 bg-blue-700 border rounded-2xl text-white">rounded-2xl</div>
+                <div class="p-4 bg-green-400 border rounded-3xl">rounded-3xl</div>
+                <div class="p-4 bg-green-500 border rounded-4xl text-white">rounded-4xl</div>
+                <div class="p-4 bg-purple-400 border rounded">rounded</div>
+                <div class="p-4 bg-purple-500 border rounded-full text-white">rounded-full</div>
+                <div class="p-4 bg-gray-300 border rounded-none">rounded-none</div>
+                <div class="p-4 bg-red-300 border rounded-[12px]">rounded-[12px]</div>
+            </div>
+
+            <pre class="bg-gray-900 text-green-300 p-4 rounded mt-4">
+&lt;div class="rounded-xs"&gt;...&lt;/div&gt;
+&lt;div class="rounded-sm"&gt;...&lt;/div&gt;
+&lt;div class="rounded-md"&gt;...&lt;/div&gt;
+&lt;div class="rounded-lg"&gt;...&lt;/div&gt;
+&lt;div class="rounded-xl"&gt;...&lt;/div&gt;
+&lt;div class="rounded-2xl"&gt;...&lt;/div&gt;
+&lt;div class="rounded-3xl"&gt;...&lt;/div&gt;
+&lt;div class="rounded-4xl"&gt;...&lt;/div&gt;
+&lt;div class="rounded"&gt;...&lt;/div&gt;
+&lt;div class="rounded-full"&gt;...&lt;/div&gt;
+&lt;div class="rounded-none"&gt;...&lt;/div&gt;
+&lt;div class="rounded-[12px]"&gt;...&lt;/div&gt;
+            </pre>
+        </div>
+
+        <!-- Cantos individuais -->
+        <div class="mt-6 p-4 border bg-white">
+            <h2 class="font-semibold mb-2">Cantos específicos</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="p-6 bg-yellow-200 border rounded-t-lg">rounded-t-lg</div>
+                <div class="p-6 bg-yellow-300 border rounded-b-lg">rounded-b-lg</div>
+                <div class="p-6 bg-yellow-400 border rounded-l-lg">rounded-l-lg</div>
+                <div class="p-6 bg-yellow-500 border rounded-r-lg text-white">rounded-r-lg</div>
+
+                <div class="p-6 bg-pink-200 border rounded-tl-2xl">rounded-tl-2xl</div>
+                <div class="p-6 bg-pink-300 border rounded-tr-2xl">rounded-tr-2xl</div>
+                <div class="p-6 bg-pink-400 border rounded-br-2xl">rounded-br-2xl</div>
+                <div class="p-6 bg-pink-500 border rounded-bl-2xl text-white">rounded-bl-2xl</div>
+            </div>
+
+            <pre class="bg-gray-900 text-green-300 p-4 rounded mt-4">
+&lt;div class="rounded-t-lg"&gt;...&lt;/div&gt;
+&lt;div class="rounded-b-lg"&gt;...&lt;/div&gt;
+&lt;div class="rounded-l-lg"&gt;...&lt;/div&gt;
+&lt;div class="rounded-r-lg"&gt;...&lt;/div&gt;
+
+&lt;div class="rounded-tl-2xl"&gt;...&lt;/div&gt;
+&lt;div class="rounded-tr-2xl"&gt;...&lt;/div&gt;
+&lt;div class="rounded-br-2xl"&gt;...&lt;/div&gt;
+&lt;div class="rounded-bl-2xl"&gt;...&lt;/div&gt;
+            </pre>
+        </div>
+
+        <!-- Start / End -->
+        <div class="mt-6 p-4 border bg-white">
+            <h2 class="font-semibold mb-2">Start / End (direção lógica)</h2>
+            <div class="grid grid-cols-3 gap-4">
+                <div class="p-6 bg-indigo-200 border rounded-s-md">rounded-s-md</div>
+                <div class="p-6 bg-indigo-400 border rounded-e-md text-white">rounded-e-md</div>
+                <div dir="rtl" class="p-6 bg-indigo-600 border rounded-s-md text-white">dir="rtl"</div>
+            </div>
+
+            <pre class="bg-gray-900 text-green-300 p-4 rounded mt-4">
+&lt;div class="rounded-s-md"&gt;...&lt;/div&gt;
+&lt;div class="rounded-e-md"&gt;...&lt;/div&gt;
+&lt;div dir="rtl" class="rounded-s-md"&gt;...&lt;/div&gt;
+            </pre>
+        </div>
+
+        <!-- Estados e responsividade -->
+        <div class="mt-6 p-4 border bg-white">
+            <h2 class="font-semibold mb-2">Estados e responsividade</h2>
+            <div class="flex gap-4">
+            <div class="flex gap-4">
+                <button class="px-4 py-2 bg-indigo-500 text-white rounded-md hover:rounded-xl transition-all">hover:rounded-xl</button>
+                <button class="px-4 py-2 bg-indigo-500 text-white rounded-md focus:rounded-full focus:outline-none">focus:rounded-full</button>
+            </div>
+            </div>
+
+            <pre class="bg-gray-900 text-green-300 p-4 rounded mt-4">
+&lt;button class="rounded-md hover:rounded-xl"&gt;...&lt;/button&gt;
+&lt;button class="rounded-md focus:rounded-full"&gt;...&lt;/button&gt;
+            </pre>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+    <!-- BORDER WIDTH -->
+    <section id="border-width" class="p-8">
+        <h1 class="text-2xl font-bold mt-6">Border Width</h1>
+        <p class="mt-2 text-gray-700">
+            As utilidades de <code>border-width</code> do Tailwind controlam a espessura das bordas. As classes incluem
+            <code>border</code> (padrão 1px), <code>border-0</code>, <code>border-2</code>, <code>border-4</code>, <code>border-8</code>
+            e também variantes por lado (<code>border-t-*</code>, <code>border-r-*</code>, <code>border-b-*</code>, <code>border-l-*</code>),
+            e por eixo (<code>border-x-*</code>, <code>border-y-*</code>). :contentReference[oaicite:0]{index=0}
+        </p>
+
+        <!-- Valores padrão -->
+        <div class="mt-6 p-4 border bg-white">
+            <h2 class="font-semibold mb-2">Valores padrão</h2>
+            <p class="text-gray-700 mb-3">Exemplos visuais: cada caixa mostra a mesma cor de fundo e uma borda com a espessura indicada.</p>
+
+            <div class="grid grid-cols-2 md:grid-cols-6 gap-4">
+                <div class="p-6 bg-blue-50 border border-blue-600">border (1px)</div>
+                <div class="p-6 bg-blue-100 border-0 border-blue-600">border-0 (sem borda)</div>
+                <div class="p-6 bg-blue-200 border-2 border-blue-700">border-2</div>
+                <div class="p-6 bg-blue-300 border-4 border-blue-800">border-4</div>
+                <div class="p-6 bg-blue-400 border-8 border-blue-900 text-white">border-8</div>
+                <div class="p-6 bg-green-100 border-[12px] border-green-700">border-[12px] (arbitrário)</div>
+            </div>
+
+            <pre class="bg-gray-900 text-green-300 p-4 rounded mt-4">
+&lt;div class="border"&gt;border (1px)&lt;/div&gt;
+&lt;div class="border-0"&gt;sem borda&lt;/div&gt;
+&lt;div class="border-2"&gt;border-2&lt;/div&gt;
+&lt;div class="border-4"&gt;border-4&lt;/div&gt;
+&lt;div class="border-8"&gt;border-8&lt;/div&gt;
+&lt;div class="border-[12px]"&gt;border-[12px]&lt;/div&gt;
+            </pre>
+        </div>
+
+        <!-- Lados específicos -->
+        <div class="mt-6 p-4 border bg-white">
+            <h2 class="font-semibold mb-2">Lados específicos (top/right/bottom/left)</h2>
+            <p class="text-gray-700 mb-3">Controle a largura de um lado isoladamente.</p>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="p-6 bg-yellow-50 border-t-4 border-yellow-600">border-t-4</div>
+                <div class="p-6 bg-yellow-100 border-r-4 border-yellow-700">border-r-4</div>
+                <div class="p-6 bg-yellow-200 border-b-4 border-yellow-800">border-b-4</div>
+                <div class="p-6 bg-yellow-300 border-l-4 border-yellow-900">border-l-4</div>
+
+                <div class="p-6 bg-pink-50 border-t-[6px] border-pink-600">border-t-[6px]</div>
+                <div class="p-6 bg-pink-100 border-b-[10px] border-pink-700">border-b-[10px]</div>
+                <div class="p-6 bg-pink-200 border-l-[3px] border-pink-800">border-l-[3px]</div>
+                <div class="p-6 bg-pink-300 border-r-[9px] border-pink-900">border-r-[9px]</div>
+            </div>
+
+            <pre class="bg-gray-900 text-green-300 p-4 rounded mt-4">
+&lt;div class="border-t-4"&gt;...&lt;/div&gt;
+&lt;div class="border-r-4"&gt;...&lt;/div&gt;
+&lt;div class="border-b-4"&gt;...&lt;/div&gt;
+&lt;div class="border-l-4"&gt;...&lt;/div&gt;
+
+&lt;div class="border-t-[6px]"&gt;...&lt;/div&gt;
+&lt;div class="border-b-[10px]"&gt;...&lt;/div&gt;
+&lt;div class="border-l-[3px]"&gt;...&lt;/div&gt;
+&lt;div class="border-r-[9px]"&gt;...&lt;/div&gt;
+            </pre>
+        </div>
+
+        <!-- Eixos: border-x / border-y -->
+        <div class="mt-6 p-4 border bg-white">
+            <h2 class="font-semibold mb-2">Eixos (border-x / border-y)</h2>
+            <p class="text-gray-700 mb-3">Aplicam a largura nos eixos inline ou block (ambas as bordas do eixo).</p>
+
+            <div class="grid grid-cols-3 gap-4">
+                <div class="p-6 bg-indigo-50 border-x border-indigo-700">border-x (1px nas laterais)</div>
+                <div class="p-6 bg-indigo-100 border-x-4 border-indigo-800">border-x-4 (4px nas laterais)</div>
+                <div class="p-6 bg-indigo-200 border-y-8 border-indigo-900 text-white">border-y-8 (8px top/bottom)</div>
+            </div>
+
+            <pre class="bg-gray-900 text-green-300 p-4 rounded mt-4">
+&lt;div class="border-x"&gt;...&lt;/div&gt;
+&lt;div class="border-x-4"&gt;...&lt;/div&gt;
+&lt;div class="border-y-8"&gt;...&lt;/div&gt;
+            </pre>
+        </div>
+
+        <!-- Start / End (lógico) -->
+        <div class="mt-6 p-4 border bg-white">
+            <h2 class="font-semibold mb-2">Start / End (direção lógica)</h2>
+            <p class="text-gray-700 mb-3">Use <code>border-s-*</code> / <code>border-e-*</code> para suportar LTR / RTL (inline-start / inline-end).</p>
+
+            <div class="grid grid-cols-3 gap-4">
+                <div class="p-6 bg-emerald-50 border-s-4 border-emerald-700">border-s-4 (start)</div>
+                <div class="p-6 bg-emerald-100 border-e-4 border-emerald-800">border-e-4 (end)</div>
+                <div dir="rtl" class="p-6 bg-emerald-200 border-s-4 border-emerald-900 text-white">dir="rtl" (start vira direita)</div>
+            </div>
+
+            <pre class="bg-gray-900 text-green-300 p-4 rounded mt-4">
+&lt;div class="border-s-4"&gt;...&lt;/div&gt;
+&lt;div class="border-e-4"&gt;...&lt;/div&gt;
+&lt;div dir="rtl" class="border-s-4"&gt;...&lt;/div&gt;
+            </pre>
+        </div>
+
+        <!-- Divide utilities -->
+        <div class="mt-6 p-4 border bg-white">
+            <h2 class="font-semibold mb-2">Divide utilities (separadores entre filhos)</h2>
+            <p class="text-gray-700 mb-3">
+                <code>divide-x</code> e <code>divide-y</code> aplicam bordas entre irmãos (útil em listas/grids). Existem variantes com valores (<code>divide-x-2</code>, <code>divide-y-4</code>) e valores arbitrários. :contentReference[oaicite:1]{index=1}
+            </p>
+
+            <div class="border p-2 bg-gray-100">
+                <div class="flex divide-x divide-gray-400">
+                    <div class="px-4 py-3">Item 1</div>
+                    <div class="px-4 py-3">Item 2</div>
+                    <div class="px-4 py-3">Item 3</div>
+                </div>
+            </div>
+
+            <div class="mt-3 border p-2 bg-gray-100">
+                <div class="flex divide-x-4 divide-red-500">
+                    <div class="px-4 py-3">Item A</div>
+                    <div class="px-4 py-3">Item B</div>
+                    <div class="px-4 py-3">Item C</div>
+                </div>
+            </div>
+
+            <pre class="bg-gray-900 text-green-300 p-4 rounded mt-4">
+&lt;div class="flex divide-x divide-gray-400"&gt;
+&lt;div&gt;Item 1&lt;/div&gt;
+&lt;div&gt;Item 2&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="flex divide-x-4 divide-red-500"&gt;...&lt;/div&gt;
+&lt;div class="space-y-2 divide-y-2"&gt;...&lt;/div&gt;
+            </pre>
+        </div>
+
+        <!-- Custom properties e valores arbitrários -->
+        <div class="mt-6 p-4 border bg-white">
+            <h2 class="font-semibold mb-2">Custom properties e valores arbitrários</h2>
+            <p class="text-gray-700 mb-3">
+                É possível usar <code>border-[<value>]</code> ou variáveis CSS: <code>border-[var(--my-border)]</code>. Use isso para casos em que os tokens do tema não cobrem a necessidade. :contentReference[oaicite:2]{index=2}
+            </p>
+
+            <div class="grid grid-cols-3 gap-4">
+                <div class="p-6 bg-rose-50 border-[5px] border-rose-600">border-[5px]</div>
+                <div class="p-6 bg-rose-100" style="border: var(--my-border) solid #be123c;">border from var (--my-border)</div>
+                <div class="p-6 bg-rose-200 border-[0.4rem] border-rose-800 text-white">border-[0.4rem]</div>
+            </div>
+
+            <pre class="bg-gray-900 text-green-300 p-4 rounded mt-4">
+:root { --my-border: 6px; }
+
+&lt;div class="border-[5px]"&gt;...&lt;/div&gt;
+&lt;div style="--my-border:6px;" class="border-[var(--my-border)]"&gt;...&lt;/div&gt;
+&lt;div class="border-[0.4rem]"&gt;...&lt;/div&gt;
+            </pre>
+        </div>
+
+        <!-- Estados e responsividade -->
+        <div class="mt-6 p-4 border bg-white">
+            <h2 class="font-semibold mb-2">Estados e responsividade</h2>
+            <p class="text-gray-700 mb-3">Combine com pseudo-classes e breakpoints: <code>hover:border-4</code>, <code>sm:border-2 md:border-4</code>, etc.</p>
+
+            <div class="flex gap-4">
+                <div class="px-4 py-3 bg-sky-100 border border-sky-700 hover:border-4 transition-all">hover:border-4</div>
+                <div class="px-4 py-3 bg-sky-200 border-2 sm:border-4 md:border-8">sm:border-4 md:border-8</div>
+                <div class="px-4 py-3 bg-sky-300 border-0 hover:border">hover:add border</div>
+            </div>
+
+            <pre class="bg-gray-900 text-green-300 p-4 rounded mt-4">
+&lt;div class="hover:border-4"&gt;...&lt;/div&gt;
+&lt;div class="sm:border-2 md:border-4"&gt;...&lt;/div&gt;
+&lt;div class="border-0 hover:border"&gt;...&lt;/div&gt;
+            </pre>
+        </div>
+
+        <p class="text-sm text-gray-600 mt-6">
+            Dica: prefira os tokens do tema (ex.: <code>border-2</code>, <code>border-4</code>) para consistência visual; use valores arbitrários ou variáveis CSS quando precisar de um ajuste fino. Para mais detalhes veja a documentação oficial. :contentReference[oaicite:3]{index=3}
+        </p>
+    </section>
+
+
+
+
+
+
+
+
+
+
+    <!-- Border Style -->
+    <section id="border-style" class="p-8">
+        <h1 class="text-2xl font-bold mt-6">Border Style</h1>
+        <p class="mt-2 text-gray-700">
+            Utilitários para controlar o <code>border-style</code> no Tailwind. Classes principais:
+            <code>border-solid</code>, <code>border-dashed</code>, <code>border-dotted</code>, <code>border-double</code>,
+            <code>border-hidden</code> e <code>border-none</code>. Use <code>divide-*</code> para controlar o estilo entre filhos. :contentReference[oaicite:1]{index=1}
+        </p>
+
+        <!-- Exemplos básicos -->
+        <div class="mt-6 p-4 border bg-white">
+            <h2 class="font-semibold mb-2">Exemplos básicos</h2>
+            <p class="text-gray-700 mb-3">Caixas com a mesma largura de borda, apenas mudando o <code>border-style</code>.</p>
+
+            <div class="grid grid-cols-2 md:grid-cols-6 gap-4">
+                <div class="p-6 bg-blue-50 border-2 border-blue-600 border-solid">border-solid</div>
+                <div class="p-6 bg-blue-100 border-2 border-blue-700 border-dashed">border-dashed</div>
+                <div class="p-6 bg-blue-200 border-2 border-blue-800 border-dotted">border-dotted</div>
+                <div class="p-6 bg-blue-300 border-4 border-blue-900 border-double text-white">border-double</div>
+                <div class="p-6 bg-gray-100 border-2 border-gray-500 border-hidden">border-hidden</div>
+                <div class="p-6 bg-gray-200 border-2 border-gray-500 border-none">border-none</div>
+            </div>
+
+            <pre class="bg-gray-900 text-green-300 p-4 rounded mt-4">
+&lt;div class="border-2 border-blue-600 border-solid"&gt;...&lt;/div&gt;
+&lt;div class="border-2 border-blue-700 border-dashed"&gt;...&lt;/div&gt;
+&lt;div class="border-2 border-blue-800 border-dotted"&gt;...&lt;/div&gt;
+&lt;div class="border-4 border-blue-900 border-double"&gt;...&lt;/div&gt;
+&lt;div class="border-2 border-gray-500 border-hidden"&gt;...&lt;/div&gt;
+&lt;div class="border-2 border-gray-500 border-none"&gt;...&lt;/div&gt;
+            </pre>
+        </div>
+
+        <!-- Combine estilo + largura + cor -->
+        <div class="mt-6 p-4 border bg-white">
+            <h2 class="font-semibold mb-2">Combinações: estilo + largura + cor</h2>
+            <p class="text-gray-700 mb-3">Misture <code>border-*</code> com <code>border-2/4</code> e <code>border-{color}</code> para ver o efeito completo.</p>
+
+            <div class="grid grid-cols-3 gap-4">
+                <div class="p-6 bg-emerald-50 border-2 border-emerald-700 border-dashed">border-2 border-dashed</div>
+                <div class="p-6 bg-emerald-100 border-4 border-emerald-800 border-double">border-4 border-double</div>
+                <div class="p-6 bg-emerald-200 border-2 border-emerald-900 border-dotted">border-2 border-dotted</div>
+            </div>
+
+            <pre class="bg-gray-900 text-green-300 p-4 rounded mt-4">
+&lt;div class="border-2 border-emerald-700 border-dashed"&gt;...&lt;/div&gt;
+&lt;div class="border-4 border-emerald-800 border-double"&gt;...&lt;/div&gt;
+&lt;div class="border-2 border-emerald-900 border-dotted"&gt;...&lt;/div&gt;
+            </pre>
+        </div>
+
+        <!-- Divide utilities (estilo entre filhos) -->
+        <div class="mt-6 p-4 border bg-white">
+            <h2 class="font-semibold mb-2">Divide utilities (separadores entre filhos)</h2>
+            <p class="text-gray-700 mb-3">
+                Controle o <code>border-style</code> entre filhos com <code>divide-solid</code>, <code>divide-dashed</code>, <code>divide-dotted</code>, <code>divide-double</code>, <code>divide-none</code>. :contentReference[oaicite:2]{index=2}
+            </p>
+
+            <div class="border p-2 bg-gray-100">
+                <div class="grid grid-cols-3 divide-x-2 divide-dashed divide-gray-400">
+                    <div class="px-4 py-3">01</div>
+                    <div class="px-4 py-3">02</div>
+                    <div class="px-4 py-3">03</div>
+                </div>
+            </div>
+
+            <div class="mt-3 border p-2 bg-gray-100">
+                <div class="flex divide-y-4 divide-double divide-red-500 flex-col">
+                    <div class="px-4 py-3">A</div>
+                    <div class="px-4 py-3">B</div>
+                    <div class="px-4 py-3">C</div>
+                </div>
+            </div>
+
+            <pre class="bg-gray-900 text-green-300 p-4 rounded mt-4">
+&lt;div class="grid grid-cols-3 divide-x-2 divide-dashed"&gt;
+&lt;div&gt;01&lt;/div&gt;
+&lt;div&gt;02&lt;/div&gt;
+&lt;div&gt;03&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="flex flex-col divide-y-4 divide-double"&gt;...&lt;/div&gt;
+&lt;div class="divide-none"&gt;...&lt;/div&gt;
+            </pre>
+        </div>
+
+        <!-- Removendo borda -->
+        <div class="mt-6 p-4 border bg-white">
+            <h2 class="font-semibold mb-2">Remover borda</h2>
+            <p class="text-gray-700 mb-3">Use <code>border-none</code> para remover uma borda aplicada anteriormente (útil em breakpoints).</p>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div class="p-6 bg-rose-50 border-2 border-rose-600 border-none">border-none (sem borda)</div>
+                <div class="p-6 bg-rose-100 border-2 border-rose-600 border-solid">border-solid (com borda)</div>
+            </div>
+
+            <pre class="bg-gray-900 text-green-300 p-4 rounded mt-4">
+&lt;button class="border-none"&gt;Sem borda&lt;/button&gt;
+&lt;div class="border-2 md:border-none"&gt;Com borda em mobile, sem borda em md+&lt;/div&gt;
+            </pre>
+        </div>
+
+        <!-- Responsivo e estados (hover/focus) -->
+        <div class="mt-6 p-4 border bg-white">
+            <h2 class="font-semibold mb-2">Responsivo e estados</h2>
+            <p class="text-gray-700 mb-3">Prefixe com breakpoints (<code>sm:</code>, <code>md:</code>) ou com estados (<code>hover:</code>, <code>focus:</code>) para aplicar condicionalmente.</p>
+
+            <div class="flex gap-4">
+                <div class="px-4 py-2 bg-sky-100 border-2 border-sky-600 border-solid hover:border-dashed transition-all">hover:border-dashed</div>
+                <div class="px-4 py-2 bg-sky-200 border-2 border-sky-700 md:border-dotted">md:border-dotted</div>
+                <div class="px-4 py-2 bg-sky-300 border-2 border-transparent hover:border-solid">hover:add style</div>
+            </div>
+
+            <pre class="bg-gray-900 text-green-300 p-4 rounded mt-4">
+&lt;div class="border-solid hover:border-dashed"&gt;...&lt;/div&gt;
+&lt;div class="border-solid md:border-dotted"&gt;...&lt;/div&gt;
+&lt;div class="border-none hover:border-solid"&gt;...&lt;/div&gt;
+            </pre>
+        </div>
+
+        <!-- Observações finais -->
+        <p class="text-sm text-gray-600 mt-6">
+            Dica: combine <code>border-style</code> com largura e cor para obter o efeito visual desejado; prefira tokens do tema para manter consistência, e use <code>divide-*</code> quando precisar aplicar estilo entre filhos. Para referência completa consulte a documentação oficial. :contentReference[oaicite:3]{index=3}
+        </p>
+    </section>
+{% endblock %}
