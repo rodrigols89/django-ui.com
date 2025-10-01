@@ -1,4 +1,4 @@
-<nav class="bg-gray-800 p-4">
+<nav class="fixed top-0 left-0 right-0 bg-gray-800 p-4 z-50 shadow-md">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
         <ul class="flex space-x-8 text-white">
             <!-- Home -->
@@ -7,17 +7,16 @@
             </li>
 
             <!-- TailwindCSS Dropdown -->
-            <li class="relative group">
-                <button class="hover:text-gray-300">
+            <li class="relative">
+                <button id="tailwindBtn" class="hover:text-gray-300">
                     TailwindCSS
                 </button>
                 <!-- Dropdown -->
-                <ul class="absolute left-0 mt-2 w-56 bg-white text-gray-800 rounded shadow-lg opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transform transition-all duration-200 origin-top">
+                <ul id="tailwindMenu" class="absolute left-0 mt-2 w-56 bg-white text-gray-800 rounded shadow-lg transform scale-95 opacity-0 invisible transition-all duration-200 origin-top">
                     <li><a href="{% url 'spacing' %}" class="block px-4 py-2 hover:bg-gray-100">Spacing</a></li>
                     <li><a href="{% url 'sizing' %}" class="block px-4 py-2 hover:bg-gray-100">Sizing</a></li>
                     <li><a href="{% url 'layout' %}" class="block px-4 py-2 hover:bg-gray-100">Layout</a></li>
-                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Flexbox & Grid</a></li>
-                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Typography</a></li>
+                    <li><a href="{% url 'typography' %}" class="block px-4 py-2 hover:bg-gray-100">Typography</a></li>
                     <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Backgrounds</a></li>
                     <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Borders</a></li>
                     <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Effects</a></li>
@@ -32,3 +31,25 @@
     </div>
 </nav>
 
+<!-- Adicione um padding-top no conteúdo abaixo -->
+<div class="pt-20">
+    <!-- Todo o seu conteúdo da página aqui -->
+</div>
+
+<script>
+    const btn = document.getElementById('tailwindBtn');
+    const menu = document.getElementById('tailwindMenu');
+
+    btn.addEventListener('click', () => {
+        menu.classList.toggle('opacity-100');
+        menu.classList.toggle('scale-100');
+        menu.classList.toggle('visible');
+    });
+
+    // Fecha o menu se clicar fora
+    document.addEventListener('click', (e) => {
+        if (!btn.contains(e.target) && !menu.contains(e.target)) {
+            menu.classList.remove('opacity-100', 'scale-100', 'visible');
+        }
+    });
+</script>

@@ -16,3 +16,7 @@ def sizing(request):
 def layout(request):
     if request.method == 'GET':
         return render(request, 'pages/tailwind/layout.html')
+
+def typography(request):
+    if request.method == 'GET':
+        return render(request, 'pages/tailwind/typography.html')
