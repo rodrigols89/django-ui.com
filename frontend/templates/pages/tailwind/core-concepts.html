@@ -3,7 +3,15 @@
 {% block title %}Effects{% endblock %}
 
 {% block content %}
-    {% include "components/navbar.html" %}
+
+
+
+
+
+
+
+
+
 
     <div class="flex m-8 space-x-4 mb-6">
         <a href="#hover-focus-and-other-states" class="px-4 py-2 rounded text-white bg-blue-500 hover:bg-blue-600">
@@ -19,22 +27,6 @@
             Colors
         </a>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -877,9 +869,9 @@ localStorage.theme = "dark" | "light" | removeItem("theme") to respect system
             </div>
 
             <pre class="bg-gray-900 text-green-300 p-4 rounded mt-4">
-    &lt;div class="bg-blue-50"&gt;...&lt;/div&gt;
-    &lt;div class="bg-blue-500 text-white"&gt;...&lt;/div&gt;
-    &lt;div class="bg-blue-900 text-white"&gt;...&lt;/div&gt;
+&lt;div class="bg-blue-50"&gt;...&lt;/div&gt;
+&lt;div class="bg-blue-500 text-white"&gt;...&lt;/div&gt;
+&lt;div class="bg-blue-900 text-white"&gt;...&lt;/div&gt;
             </pre>
         </div>
 
@@ -895,9 +887,9 @@ localStorage.theme = "dark" | "light" | removeItem("theme") to respect system
             </div>
 
             <pre class="bg-gray-900 text-green-300 p-4 rounded mt-4">
-    &lt;div class="bg-emerald-500 text-white"&gt;...&lt;/div&gt;
-    &lt;p class="text-rose-600"&gt;...&lt;/p&gt;
-    &lt;div class="border-l-4 border-yellow-400"&gt;...&lt;/div&gt;
+&lt;div class="bg-emerald-500 text-white"&gt;...&lt;/div&gt;
+&lt;p class="text-rose-600"&gt;...&lt;/p&gt;
+&lt;div class="border-l-4 border-yellow-400"&gt;...&lt;/div&gt;
             </pre>
         </div>
 
@@ -919,8 +911,8 @@ localStorage.theme = "dark" | "light" | removeItem("theme") to respect system
             </div>
 
             <pre class="bg-gray-900 text-green-300 p-4 rounded mt-4">
-    &lt;div class="bg-blue-500/50"&gt;...&lt;/div&gt;
-    &lt;div class="opacity-60"&gt;Todo o conteúdo fica semitransparente&lt;/div&gt;
+&lt;div class="bg-blue-500/50"&gt;...&lt;/div&gt;
+&lt;div class="opacity-60"&gt;Todo o conteúdo fica semitransparente&lt;/div&gt;
             </pre>
         </div>
 
@@ -935,10 +927,10 @@ localStorage.theme = "dark" | "light" | removeItem("theme") to respect system
             </div>
 
             <pre class="bg-gray-900 text-green-300 p-4 rounded mt-4">
-    &lt;p class="text-indigo-700"&gt;...&lt;/p&gt;
-    &lt;p class="underline decoration-amber-400"&gt;...&lt;/p&gt;
-    &lt;input class="accent-emerald-500"&gt;
-    &lt;input class="caret-rose-500"&gt;
+&lt;p class="text-indigo-700"&gt;...&lt;/p&gt;
+&lt;p class="underline decoration-amber-400"&gt;...&lt;/p&gt;
+&lt;input class="accent-emerald-500"&gt;
+&lt;input class="caret-rose-500"&gt;
             </pre>
         </div>
 
@@ -953,9 +945,9 @@ localStorage.theme = "dark" | "light" | removeItem("theme") to respect system
             </div>
 
             <pre class="bg-gray-900 text-green-300 p-4 rounded mt-4">
-    &lt;div class="border-2 border-pink-400"&gt;...&lt;/div&gt;
-    &lt;button class="ring-2 ring-indigo-400"&gt;...&lt;/button&gt;
-    &lt;div class="shadow-lg shadow-cyan-500/30"&gt;...&lt;/div&gt;
+&lt;div class="border-2 border-pink-400"&gt;...&lt;/div&gt;
+&lt;button class="ring-2 ring-indigo-400"&gt;...&lt;/button&gt;
+&lt;div class="shadow-lg shadow-cyan-500/30"&gt;...&lt;/div&gt;
             </pre>
         </div>
 
@@ -972,8 +964,8 @@ localStorage.theme = "dark" | "light" | removeItem("theme") to respect system
             </div>
 
             <pre class="bg-gray-900 text-green-300 p-4 rounded mt-4">
-    &lt;div class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"&gt;...&lt;/div&gt;
-    &lt;div class="bg-gradient-to-b from-amber-300 to-rose-400"&gt;...&lt;/div&gt;
+&lt;div class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"&gt;...&lt;/div&gt;
+&lt;div class="bg-gradient-to-b from-amber-300 to-rose-400"&gt;...&lt;/div&gt;
             </pre>
         </div>
 
@@ -988,9 +980,9 @@ localStorage.theme = "dark" | "light" | removeItem("theme") to respect system
             </div>
 
             <pre class="bg-gray-900 text-green-300 p-4 rounded mt-4">
-    &lt;button class="hover:bg-sky-700"&gt;...&lt;/button&gt;
-    &lt;input class="focus:border-indigo-500"&gt;
-    &lt;button class="active:bg-rose-600"&gt;...&lt;/button&gt;
+&lt;button class="hover:bg-sky-700"&gt;...&lt;/button&gt;
+&lt;input class="focus:border-indigo-500"&gt;
+&lt;button class="active:bg-rose-600"&gt;...&lt;/button&gt;
             </pre>
         </div>
 
@@ -1004,23 +996,23 @@ localStorage.theme = "dark" | "light" | removeItem("theme") to respect system
             </div>
 
             <pre class="bg-gray-900 text-green-300 p-4 rounded mt-4">
-    /* tailwind.config.js (exemplo) */
-    module.exports = {
-        theme: {
-            extend: {
-                colors: {
-                    brand: {
-                        50: '#fff5f7',
-                        500: '#ff6384',
-                        700: '#e6516b',
-                    }
+/* tailwind.config.js (exemplo) */
+module.exports = {
+    theme: {
+        extend: {
+            colors: {
+                brand: {
+                    50: '#fff5f7',
+                    500: '#ff6384',
+                    700: '#e6516b',
                 }
             }
         }
     }
+}
 
-    /* CSS inline usando var */
-    .my-el { background-color: rgb(var(--brand) / 1); }
+/* CSS inline usando var */
+.my-el { background-color: rgb(var(--brand) / 1); }
             </pre>
         </div>
 
@@ -1036,16 +1028,16 @@ localStorage.theme = "dark" | "light" | removeItem("theme") to respect system
             </div>
 
             <pre class="bg-gray-900 text-green-300 p-4 rounded mt-4">
-    /* tailwind.config.js (tokens) */
-    theme: {
-    extend: {
-        colors: {
-        primary: 'var(--color-primary)',
-        success: 'var(--color-success)',
-        danger: 'var(--color-danger)',
-        }
+/* tailwind.config.js (tokens) */
+theme: {
+extend: {
+    colors: {
+    primary: 'var(--color-primary)',
+    success: 'var(--color-success)',
+    danger: 'var(--color-danger)',
     }
-    }
+}
+}
             </pre>
         </div>
 
@@ -1064,7 +1056,7 @@ localStorage.theme = "dark" | "light" | removeItem("theme") to respect system
             </div>
 
             <pre class="bg-gray-900 text-green-300 p-4 rounded mt-4">
-    /* Dica: ferramentas como axe / Lighthouse / contrast checkers ajudam a validar combinações */
+/* Dica: ferramentas como axe / Lighthouse / contrast checkers ajudam a validar combinações */
             </pre>
         </div>
 
@@ -1074,16 +1066,16 @@ localStorage.theme = "dark" | "light" | removeItem("theme") to respect system
             <p class="text-gray-700 mb-3">A paleta é usada por muitas utilidades — abaixo um atalho.</p>
 
             <pre class="bg-gray-900 text-green-300 p-4 rounded">
-    bg-*
-    text-*
-    border-*
-    ring-*
-    shadow-*
-    inset-shadow-*
-    fill-*
-    stroke-*
-    accent-*
-    caret-*
+bg-*
+text-*
+border-*
+ring-*
+shadow-*
+inset-shadow-*
+fill-*
+stroke-*
+accent-*
+caret-*
             </pre>
         </div>
 
@@ -1092,24 +1084,24 @@ localStorage.theme = "dark" | "light" | removeItem("theme") to respect system
             <h2 class="font-semibold mb-2">Referência rápida — exemplos copy/paste</h2>
 
             <pre class="bg-gray-900 text-green-300 p-4 rounded">
-    /* Backgrounds */
-    bg-red-500
-    bg-red-500/75
-    bg-sky-100
+/* Backgrounds */
+bg-red-500
+bg-red-500/75
+bg-sky-100
 
-    /* Text */
-    text-gray-950
-    text-rose-600/50
+/* Text */
+text-gray-950
+text-rose-600/50
 
-    /* Border / Ring / Shadow */
-    border-indigo-300
-    ring-2 ring-emerald-400
-    shadow-lg shadow-pink-500/30
+/* Border / Ring / Shadow */
+border-indigo-300
+ring-2 ring-emerald-400
+shadow-lg shadow-pink-500/30
 
-    /* Semantic tokens (custom) */
-    bg-primary
-    text-success
-    border-danger
+/* Semantic tokens (custom) */
+bg-primary
+text-success
+border-danger
             </pre>
         </div>
 
