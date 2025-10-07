@@ -1,0 +1,725 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <title>Typography</title>
+    </head>
+    <body class="flex flex-col min-h-screen">
+        <nav class="fixed top-0 left-0 right-0 bg-gray-900 p-4 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <ul class="flex space-x-8 text-white">
+            <!-- Home -->
+            <li>
+                <a href="/" class="hover:text-gray-300">Home</a>
+            </li>
+
+            <!-- TailwindCSS Dropdown -->
+            <li class="relative">
+                <button id="tailwindBtn" class="hover:text-gray-300">
+                    TailwindCSS
+                </button>
+                <!-- Dropdown -->
+                <ul id="tailwindMenu"
+                    class="absolute left-0 mt-2 w-56 bg-white text-gray-800 rounded shadow-lg transform scale-95 opacity-0 invisible transition-all duration-200 origin-top">
+                    <li><a href="/tailwind/core-concepts/" class="block px-4 py-2 hover:bg-gray-100">Core concepts</a></li>
+                    <li><a href="/tailwind/spacing/" class="block px-4 py-2 hover:bg-gray-100">Spacing</a></li>
+                    <li><a href="/tailwind/sizing/" class="block px-4 py-2 hover:bg-gray-100">Sizing</a></li>
+                    <li><a href="/tailwind/layout/" class="block px-4 py-2 hover:bg-gray-100">Layout</a></li>
+                    <li><a href="/tailwind/typography/" class="block px-4 py-2 hover:bg-gray-100">Typography</a></li>
+                    <li><a href="/tailwind/borders/" class="block px-4 py-2 hover:bg-gray-100">Borders</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Padding superior para não cobrir o conteúdo -->
+<div class="pt-20">
+    <!-- Conteúdo da página -->
+</div>
+
+<!-- 🧠 Script do menu + ajuste automático dos links -->
+<script>
+    const btn = document.getElementById('tailwindBtn');
+    const menu = document.getElementById('tailwindMenu');
+
+    btn.addEventListener('click', () => {
+        menu.classList.toggle('opacity-100');
+        menu.classList.toggle('scale-100');
+        menu.classList.toggle('visible');
+    });
+
+    // Fecha o menu se clicar fora
+    document.addEventListener('click', (e) => {
+        if (!btn.contains(e.target) && !menu.contains(e.target)) {
+            menu.classList.remove('opacity-100', 'scale-100', 'visible');
+        }
+    });
+
+    // 🔗 Ajusta automaticamente os links quando hospedado no GitHub Pages
+    document.addEventListener('DOMContentLoaded', () => {
+        const basePath = window.location.pathname.includes('/ui-examples') ? '/ui-examples' : '';
+        document.querySelectorAll('nav a[href^="/"], #tailwindMenu a[href^="/"]').forEach(link => {
+            const originalHref = link.getAttribute('href');
+            link.setAttribute('href', basePath + originalHref);
+        });
+    });
+</script>
+
+
+        <!-- Aqui o segredo está no flex-grow -->
+        <main class="flex-grow">
+            
+
+
+
+
+
+
+
+
+
+
+    <div class="flex m-8 space-x-4 mb-6">
+        <a href="#text-align" class="px-4 py-2 rounded text-white bg-blue-500 hover:bg-blue-600">
+            Text Align
+        </a>
+        <a href="#font-family" class="px-4 py-2 rounded text-white bg-green-500 hover:bg-green-600">
+            Font Family
+        </a>
+        <a href="#font-size" class="px-4 py-2 rounded text-white bg-purple-500 hover:bg-purple-600">
+            Font Size
+        </a>
+        <a href="#font-weight" class="px-4 py-2 rounded text-white bg-pink-500 hover:bg-pink-600">
+            Font Weight
+        </a>
+        <a href="#colors" class="px-4 py-2 rounded text-white bg-orange-500 hover:bg-orange-600">
+            Colors
+        </a>
+        <a href="#text-decoration-line" class="px-4 py-2 rounded text-white bg-yellow-500 hover:bg-yellow-600">
+            Text Decoration Line
+        </a>
+        <a href="#text-indent" class="px-4 py-2 rounded text-white bg-cyan-500 hover:bg-cyan-600">
+            Text Indent
+        </a>
+        <a href="#list-style-type" class="px-4 py-2 rounded text-white bg-red-500 hover:bg-red-600">
+            List Style Type
+        </a>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!-- TEXT ALIGN -->
+    <section id="text-align" class="p-8">
+        <h1 class="text-2xl font-bold mt-6">Text Align</h1>
+        <p class="mt-2 text-gray-700">
+            As utilidades de alinhamento de texto do Tailwind controlam a propriedade <code>text-align</code>.
+            Use <code>text-left</code>, <code>text-center</code>, <code>text-right</code>, <code>text-justify</code>
+            e também <code>text-start</code> / <code>text-end</code> para alinhamento lógico (útil com RTL).
+        </p>
+
+        <!-- Exemplos básicos -->
+        <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="p-4 border">
+                <h2 class="font-semibold mb-2">text-left</h2>
+                <p class="text-left">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Texto alinhado à esquerda.
+                </p>
+            </div>
+
+            <div class="p-4 border">
+                <h2 class="font-semibold mb-2">text-center</h2>
+                <p class="text-center">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Texto centralizado.
+                </p>
+            </div>
+
+            <div class="p-4 border">
+                <h2 class="font-semibold mb-2">text-right</h2>
+                <p class="text-right">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Texto alinhado à direita.
+                </p>
+            </div>
+        </div>
+
+        <pre class="bg-gray-900 text-green-300 p-4 rounded my-6">
+&lt;p class="text-left"&gt;...&lt;/p&gt;
+&lt;p class="text-center"&gt;...&lt;/p&gt;
+&lt;p class="text-right"&gt;...&lt;/p&gt;
+        </pre>
+
+        <!-- text-justify -->
+        <h2 class="text-xl font-semibold mt-6 mb-2">text-justify</h2>
+        <p class="mb-4 text-gray-700">
+            A classe <code>text-justify</code> justifica o texto (alinha nas duas extremidades).
+        </p>
+        <div class="border p-4 bg-gray-50">
+            <p class="text-justify">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat, perferendis — o texto fica
+                esticado entre as margens, criando blocos visualmente balanceados em parágrafos mais longos.
+            </p>
+        </div>
+
+        <pre class="bg-gray-900 text-green-300 p-4 rounded my-6">
+&lt;p class="text-justify"&gt;Texto justificado&lt;/p&gt;
+        </pre>
+
+        <!-- text-start / text-end (logical) -->
+        <h2 class="text-xl font-semibold mt-6 mb-2">text-start / text-end (logical)</h2>
+        <p class="mb-4 text-gray-700">
+            Use <code>text-start</code> e <code>text-end</code> para alinhamento lógico que respeita a direção do texto (LTR/RTL).
+        </p>
+        <div class="grid grid-cols-2 gap-4">
+            <div class="p-4 border">
+                <h3 class="font-medium mb-2">LTR (default)</h3>
+                <p class="text-start">text-start (equivale a left em LTR)</p>
+                <p class="text-end">text-end (equivale a right em LTR)</p>
+            </div>
+            <div class="p-4 border">
+                <h3 class="font-medium mb-2">Exemplo RTL</h3>
+                <div dir="rtl" class="bg-gray-50 p-2">
+                    <p class="text-start">text-start (na direção RTL isto age como right)</p>
+                    <p class="text-end">text-end (na direção RTL isto age como left)</p>
+                </div>
+            </div>
+        </div>
+
+        <pre class="bg-gray-900 text-green-300 p-4 rounded my-6">
+&lt;p class="text-start"&gt;...&lt;/p&gt;
+&lt;p class="text-end"&gt;...&lt;/p&gt;
+        </pre>
+
+        <!-- Responsivo -->
+        <h2 class="text-xl font-semibold mt-6 mb-2">Responsivo</h2>
+        <p class="mb-4 text-gray-700">
+            Aplique alinhamentos diferentes por breakpoint: <code>text-left md:text-center lg:text-right</code>.
+        </p>
+        <div class="border p-4 bg-gray-50">
+            <p class="text-left md:text-center lg:text-right">
+                Resize a janela para ver o alinhamento mudar conforme os breakpoints (sm/md/lg).
+            </p>
+        </div>
+
+        <pre class="bg-gray-900 text-green-300 p-4 rounded my-6">
+&lt;p class="text-left md:text-center lg:text-right"&gt;...&lt;/p&gt;
+        </pre>
+
+        <!-- Nota -->
+        <p class="text-sm text-gray-600 mt-4">
+            Nota: classes como <code>text-left</code>/<code>text-right</code> são suficientes na maioria dos casos.
+            Use <code>text-start</code>/<code>text-end</code> quando precisar de compatibilidade com idiomas RTL.
+        </p>
+    </section>
+
+
+
+
+
+
+
+
+
+
+    <!-- FONT FAMILY -->
+    <section id="font-family" class="p-8">
+        <h1 class="text-2xl font-bold mt-6">Font Family</h1>
+        <p class="mt-2 text-gray-700">
+            As utilidades de família de fonte no TailwindCSS controlam a propriedade CSS <code>font-family</code>.
+            Algumas classes padrão são <code>font-sans</code>, <code>font-serif</code> e <code>font-mono</code>.
+        </p>
+
+        <div class="mt-6 space-y-4">
+            <div class="p-4 border">
+                <h2 class="font-semibold mb-2">font-sans</h2>
+                <p class="font-sans">
+                    font-sans — The quick brown fox jumps over the lazy dog.
+                </p>
+            </div>
+            <div class="p-4 border">
+                <h2 class="font-semibold mb-2">font-serif</h2>
+                <p class="font-serif">
+                    font-serif — The quick brown fox jumps over the lazy dog.
+                </p>
+            </div>
+            <div class="p-4 border">
+                <h2 class="font-semibold mb-2">font-mono</h2>
+                <p class="font-mono">
+                    font-mono — The quick brown fox jumps over the lazy dog.
+                </p>
+            </div>
+        </div>
+
+        <pre class="bg-gray-900 text-green-300 p-4 rounded mt-6">
+&lt;div class="font-sans"&gt;...&lt;/div&gt;
+&lt;div class="font-serif"&gt;...&lt;/div&gt;
+&lt;div class="font-mono"&gt;...&lt;/div&gt;
+        </pre>
+    </section>
+
+
+
+
+
+
+
+
+
+
+    <!-- FONT SIZE -->
+    <section id="font-size" class="p-8">
+        <h1 class="text-2xl font-bold mt-6">Font Size</h1>
+        <p class="mt-2 text-gray-700">
+            As utilidades de tamanho de fonte do TailwindCSS permitem usar classes como <code>text-xs</code>, <code>text-sm</code>, <code>text-base</code>,
+            <code>text-lg</code>, <code>text-xl</code>, <code>text-2xl</code>, <code>text-3xl</code>, <code>text-4xl</code>, <code>text-5xl</code>, etc., para definir o tamanho da tipografia de forma responsiva e consistente.
+        </p>
+
+        <div class="mt-6 space-y-3">
+            <p class="text-xs">text-xs — texto extra pequeno</p>
+            <p class="text-sm">text-sm — texto pequeno</p>
+            <p class="text-base">text-base — texto padrão</p>
+            <p class="text-lg">text-lg — um pouco maior</p>
+            <p class="text-xl">text-xl</p>
+            <p class="text-2xl">text-2xl</p>
+            <p class="text-3xl">text-3xl</p>
+            <p class="text-4xl">text-4xl</p>
+            <p class="text-5xl">text-5xl</p>
+            <p class="text-6xl">text-6xl</p>
+            <p class="text-7xl">text-7xl</p>
+            <p class="text-8xl">text-8xl</p>
+            <p class="text-9xl">text-9xl</p>
+        </div>
+
+        <pre class="bg-gray-900 text-green-300 p-4 rounded mt-6">
+&lt;p class="text-xs"&gt;text-xs&lt;/p&gt;
+&lt;p class="text-sm"&gt;text-sm&lt;/p&gt;
+&lt;p class="text-base"&gt;text-base&lt;/p&gt;
+&lt;p class="text-lg"&gt;text-lg&lt;/p&gt;
+&lt;p class="text-xl"&gt;text-xl&lt;/p&gt;
+&lt;p class="text-2xl"&gt;text-2xl&lt;/p&gt;
+&lt;p class="text-3xl"&gt;text-3xl&lt;/p&gt;
+&lt;p class="text-4xl"&gt;text-4xl&lt;/p&gt;
+&lt;p class="text-5xl"&gt;text-5xl&lt;/p&gt;
+&lt;p class="text-6xl"&gt;text-6xl&lt;/p&gt;
+&lt;p class="text-7xl"&gt;text-7xl&lt;/p&gt;
+&lt;p class="text-8xl"&gt;text-8xl&lt;/p&gt;
+&lt;p class="text-9xl"&gt;text-9xl&lt;/p&gt;
+        </pre>
+    </section>
+
+
+
+
+
+
+
+
+
+
+    <!-- FONT WEIGHT -->
+    <section id="font-weight" class="p-8">
+        <h1 class="text-2xl font-bold mt-6">Font Weight</h1>
+        <p class="mt-2 text-gray-700">
+            As utilidades de peso de fonte no TailwindCSS permitem controlar a propriedade CSS <code>font-weight</code>, como <code>font-thin</code>, <code>font-light</code>, <code>font-normal</code>, <code>font-medium</code>, <code>font-semibold</code>, <code>font-bold</code>, <code>font-extrabold</code>.
+        </p>
+
+        <div class="mt-6 space-y-3">
+            <p class="font-thin">font-thin — exemplo de peso fino</p>
+            <p class="font-light">font-light — um pouco mais grosso</p>
+            <p class="font-normal">font-normal — peso padrão</p>
+            <p class="font-medium">font-medium — peso médio</p>
+            <p class="font-semibold">font-semibold — mais ousado</p>
+            <p class="font-bold">font-bold — negrito</p>
+            <p class="font-extrabold">font-extrabold — ainda mais forte</p>
+        </div>
+
+        <pre class="bg-gray-900 text-green-300 p-4 rounded mt-6">
+&lt;p class="font-thin"&gt;font-thin&lt;/p&gt;
+&lt;p class="font-light"&gt;font-light&lt;/p&gt;
+&lt;p class="font-normal"&gt;font-normal&lt;/p&gt;
+&lt;p class="font-medium"&gt;font-medium&lt;/p&gt;
+&lt;p class="font-semibold"&gt;font-semibold&lt;/p&gt;
+&lt;p class="font-bold"&gt;font-bold&lt;/p&gt;
+&lt;p class="font-extrabold"&gt;font-extrabold&lt;/p&gt;
+        </pre>
+
+        <h2 class="text-xl font-semibold mt-8 mb-2">Responsivo</h2>
+        <p class="mb-2 text-gray-700">
+            Você pode aplicar variação de peso conforme breakpoint, por exemplo: <code>font-normal md:font-semibold lg:font-bold</code>.
+        </p>
+        <div class="border p-4 bg-gray-50">
+            <p class="font-normal md:font-semibold lg:font-bold">
+                Observe como o peso da fonte muda conforme a largura da tela.
+            </p>
+        </div>
+
+        <pre class="bg-gray-900 text-green-300 p-4 rounded mt-6">
+&lt;p class="font-normal md:font-semibold lg:font-bold"&gt;Texto com pesos responsivos&lt;/p&gt;
+        </pre>
+    </section>
+
+
+
+
+
+
+
+
+
+
+    <!-- COLORS -->
+    <section id="colors" class="p-8">
+        <h1 class="text-2xl font-bold mt-6">Colors</h1>
+        <p class="mt-2 text-gray-700">
+            O TailwindCSS oferece uma paleta extensa de cores utilitárias que você pode aplicar tanto
+            para texto quanto para fundos. Abaixo você verá várias classes de cor em uso — use como referência.
+        </p>
+
+        <div class="mt-6 space-y-8">
+            <!-- Escala de cinza / neutros -->
+            <div>
+                <h2 class="font-semibold mb-2">Gray / Neutros</h2>
+                <div class="grid grid-cols-5 md:grid-cols-10 gap-2">
+                    <div class="p-3 bg-gray-50 text-gray-900">gray-50</div>
+                    <div class="p-3 bg-gray-100 text-gray-900">gray-100</div>
+                    <div class="p-3 bg-gray-200 text-gray-900">gray-200</div>
+                    <div class="p-3 bg-gray-300 text-gray-900">gray-300</div>
+                    <div class="p-3 bg-gray-400 text-gray-900">gray-400</div>
+                    <div class="p-3 bg-gray-500 text-white">gray-500</div>
+                    <div class="p-3 bg-gray-600 text-white">gray-600</div>
+                    <div class="p-3 bg-gray-700 text-white">gray-700</div>
+                    <div class="p-3 bg-gray-800 text-white">gray-800</div>
+                    <div class="p-3 bg-gray-900 text-white">gray-900</div>
+                </div>
+            </div>
+
+            <!-- Vermelho -->
+            <div>
+                <h2 class="font-semibold mb-2">Red</h2>
+                <div class="grid grid-cols-5 md:grid-cols-9 gap-2">
+                    <div class="p-3 bg-red-50 text-red-900">red-50</div>
+                    <div class="p-3 bg-red-100 text-red-900">red-100</div>
+                    <div class="p-3 bg-red-200 text-red-900">red-200</div>
+                    <div class="p-3 bg-red-300 text-red-900">red-300</div>
+                    <div class="p-3 bg-red-400 text-white">red-400</div>
+                    <div class="p-3 bg-red-500 text-white">red-500</div>
+                    <div class="p-3 bg-red-600 text-white">red-600</div>
+                    <div class="p-3 bg-red-700 text-white">red-700</div>
+                    <div class="p-3 bg-red-800 text-white">red-800</div>
+                    <div class="p-3 bg-red-900 text-white">red-900</div>
+                </div>
+            </div>
+
+            <!-- Amarelo -->
+            <div>
+                <h2 class="font-semibold mb-2">Yellow</h2>
+                <div class="grid grid-cols-5 md:grid-cols-9 gap-2">
+                    <div class="p-3 bg-yellow-50 text-yellow-900">yellow-50</div>
+                    <div class="p-3 bg-yellow-100 text-yellow-900">yellow-100</div>
+                    <div class="p-3 bg-yellow-200 text-yellow-900">yellow-200</div>
+                    <div class="p-3 bg-yellow-300 text-yellow-900">yellow-300</div>
+                    <div class="p-3 bg-yellow-400 text-black">yellow-400</div>
+                    <div class="p-3 bg-yellow-500 text-black">yellow-500</div>
+                    <div class "p-3 bg-yellow-600 text-white">yellow-600</div>
+                    <div class="p-3 bg-yellow-700 text-white">yellow-700</div>
+                    <div class="p-3 bg-yellow-800 text-white">yellow-800</div>
+                    <div class="p-3 bg-yellow-900 text-white">yellow-900</div>
+                </div>
+            </div>
+
+            <!-- Verde -->
+            <div>
+                <h2 class="font-semibold mb-2">Green</h2>
+                <div class="grid grid-cols-5 md:grid-cols-9 gap-2">
+                    <div class="p-3 bg-green-50 text-green-900">green-50</div>
+                    <div class="p-3 bg-green-100 text-green-900">green-100</div>
+                    <div class="p-3 bg-green-200 text-green-900">green-200</div>
+                    <div class="p-3 bg-green-300 text-green-900">green-300</div>
+                    <div class="p-3 bg-green-400 text-white">green-400</div>
+                    <div class="p-3 bg-green-500 text-white">green-500</div>
+                    <div class="p-3 bg-green-600 text-white">green-600</div>
+                    <div class="p-3 bg-green-700 text-white">green-700</div>
+                    <div class="p-3 bg-green-800 text-white">green-800</div>
+                    <div class="p-3 bg-green-900 text-white">green-900</div>
+                </div>
+            </div>
+
+            <!-- Azul -->
+            <div>
+                <h2 class="font-semibold mb-2">Blue</h2>
+                <div class="grid grid-cols-5 md:grid-cols-9 gap-2">
+                    <div class="p-3 bg-blue-50 text-blue-900">blue-50</div>
+                    <div class="p-3 bg-blue-100 text-blue-900">blue-100</div>
+                    <div class="p-3 bg-blue-200 text-blue-900">blue-200</div>
+                    <div class="p-3 bg-blue-300 text-blue-900">blue-300</div>
+                    <div class="p-3 bg-blue-400 text-white">blue-400</div>
+                    <div class="p-3 bg-blue-500 text-white">blue-500</div>
+                    <div class="p-3 bg-blue-600 text-white">blue-600</div>
+                    <div class="p-3 bg-blue-700 text-white">blue-700</div>
+                    <div class="p-3 bg-blue-800 text-white">blue-800</div>
+                    <div class="p-3 bg-blue-900 text-white">blue-900</div>
+                </div>
+            </div>
+
+            <!-- Indigo -->
+            <div>
+                <h2 class="font-semibold mb-2">Indigo</h2>
+                <div class="grid grid-cols-5 md:grid-cols-9 gap-2">
+                    <div class="p-3 bg-indigo-50 text-indigo-900">indigo-50</div>
+                    <div class="p-3 bg-indigo-100 text-indigo-900">indigo-100</div>
+                    <div class="p-3 bg-indigo-200 text-indigo-900">indigo-200</div>
+                    <div class="p-3 bg-indigo-300 text-indigo-900">indigo-300</div>
+                    <div class="p-3 bg-indigo-400 text-white">indigo-400</div>
+                    <div class="p-3 bg-indigo-500 text-white">indigo-500</div>
+                    <div class="p-3 bg-indigo-600 text-white">indigo-600</div>
+                    <div class="p-3 bg-indigo-700 text-white">indigo-700</div>
+                    <div class="p-3 bg-indigo-800 text-white">indigo-800</div>
+                    <div class="p-3 bg-indigo-900 text-white">indigo-900</div>
+                </div>
+            </div>
+
+            <!-- Purple -->
+            <div>
+                <h2 class="font-semibold mb-2">Purple</h2>
+                <div class="grid grid-cols-5 md:grid-cols-9 gap-2">
+                    <div class="p-3 bg-purple-50 text-purple-900">purple-50</div>
+                    <div class="p-3 bg-purple-100 text-purple-900">purple-100</div>
+                    <div class="p-3 bg-purple-200 text-purple-900">purple-200</div>
+                    <div class="p-3 bg-purple-300 text-purple-900">purple-300</div>
+                    <div class="p-3 bg-purple-400 text-white">purple-400</div>
+                    <div class="p-3 bg-purple-500 text-white">purple-500</div>
+                    <div class="p-3 bg-purple-600 text-white">purple-600</div>
+                    <div class="p-3 bg-purple-700 text-white">purple-700</div>
+                    <div class="p-3 bg-purple-800 text-white">purple-800</div>
+                    <div class="p-3 bg-purple-900 text-white">purple-900</div>
+                </div>
+            </div>
+
+            <!-- Pink -->
+            <div>
+                <h2 class="font-semibold mb-2">Pink</h2>
+                <div class="grid grid-cols-5 md:grid-cols-9 gap-2">
+                    <div class="p-3 bg-pink-50 text-pink-900">pink-50</div>
+                    <div class="p-3 bg-pink-100 text-pink-900">pink-100</div>
+                    <div class="p-3 bg-pink-200 text-pink-900">pink-200</div>
+                    <div class="p-3 bg-pink-300 text-pink-900">pink-300</div>
+                    <div class="p-3 bg-pink-400 text-white">pink-400</div>
+                    <div class="p-3 bg-pink-500 text-white">pink-500</div>
+                    <div class="p-3 bg-pink-600 text-white">pink-600</div>
+                    <div class="p-3 bg-pink-700 text-white">pink-700</div>
+                    <div class="p-3 bg-pink-800 text-white">pink-800</div>
+                    <div class="p-3 bg-pink-900 text-white">pink-900</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+    <!-- TEXT DECORATION LINE -->
+    <section id="text-decoration-line" class="p-8">
+        <h1 class="text-2xl font-bold mt-6">Text Decoration Line</h1>
+        <p class="mt-2 text-gray-700">
+            A utilidade <strong>text-decoration-line</strong> no TailwindCSS permite aplicar decorações de linha em textos.
+            As classes incluem <code>underline</code>, <code>line-through</code> e <code>no-underline</code>.
+        </p>
+
+        <div class="mt-6 space-y-4">
+            <div class="p-4 border">
+                <h2 class="font-semibold mb-2">underline</h2>
+                <p class="underline">
+                    Este texto está sublinhado com a classe <code>underline</code>.
+                </p>
+            </div>
+
+            <div class="p-4 border">
+                <h2 class="font-semibold mb-2">line-through</h2>
+                <p class="line-through">
+                    Este texto está riscado (linha cortando) com <code>line-through</code>.
+                </p>
+            </div>
+
+            <div class="p-4 border">
+                <h2 class="font-semibold mb-2">no-underline</h2>
+                <p class="no-underline">
+                    Este texto não tem nenhuma linha decorativa (no-underline).
+                </p>
+            </div>
+        </div>
+
+        <pre class="bg-gray-900 text-green-300 p-4 rounded mt-6">
+&lt;p class="underline"&gt;Texto com underline&lt;/p&gt;
+&lt;p class="line-through"&gt;Texto com line-through&lt;/p&gt;
+&lt;p class="no-underline"&gt;Texto sem decoração&lt;/p&gt;
+        </pre>
+    </section>
+
+
+
+
+
+
+
+
+
+
+    <!-- TEXT INDENT -->
+    <section id="text-indent" class="p-8">
+        <h1 class="text-2xl font-bold mt-6">Text Indent</h1>
+        <p class="mt-2 text-gray-700">
+            A utilidade <strong>text-indent</strong> (indent) no TailwindCSS permite controlar o recuo da primeira linha de um parágrafo.
+            Use classes como <code>indent-0</code>, <code>indent-2</code>, <code>indent-4</code>, <code>indent-8</code> etc.
+        </p>
+
+        <div class="mt-6 space-y-4">
+            <p class="indent-0">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Este parágrafo não tem indentação (indent-0).
+            </p>
+            <p class="indent-4">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Este parágrafo tem <code>indent-4</code> aplicado.
+            </p>
+            <p class="indent-8">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Este parágrafo tem <code>indent-8</code> aplicado.
+            </p>
+        </div>
+
+        <pre class="bg-gray-900 text-green-300 p-4 rounded mt-6">
+&lt;p class="indent-0"&gt;Parágrafo sem indent&lt;/p&gt;
+&lt;p class="indent-4"&gt;Parágrafo com indent-4&lt;/p&gt;
+&lt;p class="indent-8"&gt;Parágrafo com indent-8&lt;/p&gt;
+        </pre>
+    </section>
+
+
+
+
+
+
+
+
+
+
+    <!-- LIST STYLE TYPE -->
+    <section id="list-style-type" class="p-8">
+        <h1 class="text-2xl font-bold mt-6">List Style Type</h1>
+        <p class="mt-2 text-gray-700">
+            As utilidades <strong>list-style-type</strong> do TailwindCSS permitem controlar o tipo de marcador de listas, como:
+            <code>list-none</code>, <code>list-disc</code> e <code>list-decimal</code>.
+        </p>
+
+        <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="p-4 border">
+                <h2 class="font-semibold mb-2">list-disc</h2>
+                <ul class="list-disc pl-6">
+                    <li>Item A</li>
+                    <li>Item B</li>
+                    <li>Item C</li>
+                </ul>
+            </div>
+
+            <div class="p-4 border">
+                <h2 class="font-semibold mb-2">list-decimal</h2>
+                <ol class="list-decimal pl-6">
+                    <li>Primeiro</li>
+                    <li>Segundo</li>
+                    <li>Terceiro</li>
+                </ol>
+            </div>
+
+            <div class="p-4 border">
+                <h2 class="font-semibold mb-2">list-none</h2>
+                <ul class="list-none">
+                    <li>Sem marcador 1</li>
+                    <li>Sem marcador 2</li>
+                    <li>Sem marcador 3</li>
+                </ul>
+            </div>
+        </div>
+
+        <pre class="bg-gray-900 text-green-300 p-4 rounded mt-6">
+&lt;ul class="list-disc pl-6"&gt;
+    &lt;li&gt;Item A&lt;/li&gt;
+    &lt;li&gt;Item B&lt;/li&gt;
+    &lt;li&gt;Item C&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol class="list-decimal pl-6"&gt;
+    &lt;li&gt;Primeiro&lt;/li&gt;
+    &lt;li&gt;Segundo&lt;/li&gt;
+    &lt;li&gt;Terceiro&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul class="list-none"&gt;
+    &lt;li&gt;Sem marcador 1&lt;/li&gt;
+    &lt;li&gt;Sem marcador 2&lt;/li&gt;
+&lt;/ul&gt;
+        </pre>
+    </section>
+
+        </main>
+
+        <footer class="bg-gray-900 text-gray-200 py-10">
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-6">
+
+        <!-- Localização -->
+        <div>
+            <h3 class="text-xl font-bold uppercase">Localização</h3>
+            <hr class="my-2 border-gray-600" />
+            <address class="not-italic leading-relaxed">
+                Brasil, Estado da Paraíba, CEP: 58398-000<br>
+                Telefone: <a href="tel:+5583996500112" class="text-blue-400 hover:underline">+55 83 99650-0112 (WhatsApp)</a><br>
+                <strong>E-mail: </strong>
+                <a href="mailto:rodrigols89.inbox@gmail.com" class="text-blue-400 hover:underline">
+                    rodrigols89.inbox@gmail.com
+                </a>
+            </address>
+        </div>
+
+        <!-- Redes Sociais -->
+        <div class="text-center md:text-left">
+            <h3 class="text-xl font-bold uppercase">Redes Sociais</h3>
+            <hr class="my-2 border-gray-600" />
+            <ul class="flex justify-center md:justify-start space-x-4 mt-4">
+                <!-- LinkedIn -->
+                <li>
+                    <a href="https://www.linkedin.com/in/rodrigols89" target="_blank" rel="noopener noreferrer"
+                        class="p-2 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                            viewBox="0 0 24 24" class="w-6 h-6 text-white">
+                        <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 8.98h5V24H0V8.98zm8.5 0h4.78v2.05h.07c.67-1.27 2.32-2.6 4.77-2.6C22.42 8.43 24 11.07 24 15.4V24h-5v-7.53c0-1.8-.03-4.13-2.52-4.13-2.53 0-2.92 1.97-2.92 4v7.66h-5V8.98z"/>
+                        </svg>
+                    </a>
+                </li>
+                <!-- GitHub -->
+                <li>
+                    <a href="https://github.com/rodrigols89" target="_blank" rel="noopener noreferrer"
+                        class="p-2 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                            viewBox="0 0 24 24" class="w-6 h-6 text-white">
+                        <path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.36-1.3-1.72-1.3-1.72-1.06-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.04 1.78 2.74 1.27 3.41.97.1-.75.41-1.27.74-1.56-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.45.11-3.02 0 0 .97-.31 3.18 1.18a11.1 11.1 0 012.9-.39c.98.01 1.96.13 2.9.39 2.2-1.49 3.18-1.18 3.18-1.18.63 1.57.23 2.73.11 3.02.74.8 1.19 1.83 1.19 3.09 0 4.44-2.68 5.41-5.23 5.7.42.36.8 1.08.8 2.17 0 1.57-.01 2.83-.01 3.22 0 .31.21.68.8.56A10.52 10.52 0 0023.5 12C23.5 5.73 18.27.5 12 .5z"/>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</footer>
+
+    </body>
+</html>
