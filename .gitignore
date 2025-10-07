@@ -252,3 +252,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+/static_collected
+/static_collected/*
